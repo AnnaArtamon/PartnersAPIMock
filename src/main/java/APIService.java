@@ -55,6 +55,7 @@ public class APIService {
 
         return responseJson;
     }
+
     public JSONObject acceptInvoices(JSONObject invoicesObject) {
         JSONObject responseJson = new JSONObject();
 
@@ -82,5 +83,47 @@ public class APIService {
         });
 
         return responseJson;
+    }
+
+    public String acceptRefunds() {
+
+        return "[\n" +
+                "  {\n" +
+                "    \"succsess\": [\n" +
+                "      {\n" +
+                "        \"order_number\": \"ЦБ000111222333\",\n" +
+                "        \"sale_number\": \"ЦБ000111222333\",\n" +
+                "        \"partner\": \"6967c8ae-fa55-20ac-670e-1feb87e47ff0\",\n" +
+                "        \"refund_number\": \"ОБ000111222333\",\n" +
+                "        \"crpt_refund_number\": \"ОБ000111222333\",\n" +
+                "        \"refund_date\": \"2021-07-15T12:30:58Z\",\n" +
+                "        \"positions\": [\n" +
+                "          {\n" +
+                "            \"product_code\": \"100225\",\n" +
+                "            \"sgtin\": \"189012360205363FUESRM3YNPH2\"\n" +
+                "          }\n" +
+                "        ]\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"unknown\": [\n" +
+                "      {\n" +
+                "        \"order_number\": \"ЦБ000111222333\",\n" +
+                "        \"sale_number\": \"ЦБ000111222333\",\n" +
+                "        \"partner\": \"6967c8ae-fa55-20ac-670e-1feb87e47ff0\",\n" +
+                "        \"refund_number\": \"ОБ000111222333\",\n" +
+                "        \"crpt_refund_number\": \"ОБ000111222333\",\n" +
+                "        \"refund_date\": \"2021-07-15T12:30:58Z\",\n" +
+                "        \"positions\": [\n" +
+                "          {\n" +
+                "            \"product_code\": \"100225\",\n" +
+                "            \"sgtin\": \"189012360205363FUESRM3YNPH2\"\n" +
+                "          }\n" +
+                "        ]\n" +
+                "      }\n" +
+                "    ]\n" +
+                "  }\n" +
+                "]";
     }
 }

@@ -124,9 +124,44 @@ public class MockServer {
 
         });
 
+        server.createContext("/refunds", exchange -> {
+            System.out.println(exchange.getRequestURI());
+            InputStreamReader isr =  new InputStreamReader(exchange.getRequestBody(),"utf-8");
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder valueStringBuilder = new StringBuilder();
+            String line;
+            while( (line = br.readLine()) != null) {
+                valueStringBuilder.append(line);
+                valueStringBuilder.append("\n");
+            }
+
+            String inputValue = valueStringBuilder.toString();
+            System.out.println(inputValue);
+
+            try {
+                String outputValue = apiService.acceptRefunds();
+
+                exchange.sendResponseHeaders(200, outputValue.getBytes().length);
+                OutputStream output = exchange.getResponseBody();
+                output.write(outputValue.getBytes());
+                System.out.println("Response code 200");
+                System.out.println("Response body:");
+                System.out.println(outputValue);
+                output.flush();
+                exchange.close();
+            }
+            catch (Exception e){
+                System.out.println("[Error] Exception gotten while handling request body.");
+                System.out.println(e.getMessage());
+            }
+
+        });
+
         server.createContext("/", exchange -> {
             InputStreamReader isr =  new InputStreamReader(exchange.getRequestBody(),"utf-8");
             System.out.println(exchange.getRequestURI());
+            System.out.println(exchange.getLocalAddress());
+
             try {
                 BufferedReader br = new BufferedReader(isr);
                 StringBuilder valueStringBuilder = new StringBuilder();
