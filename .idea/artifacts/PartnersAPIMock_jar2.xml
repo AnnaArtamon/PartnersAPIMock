@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PartnersAPIMock:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/PartnersAPIMock_jar2</output-path>
+    <root id="archive" name="PartnersAPIMock.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="PartnersAPIMock" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20210307/json-20210307.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/xbean/xbean-reflect/4.20/xbean-reflect-4.20.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

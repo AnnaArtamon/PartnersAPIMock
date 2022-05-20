@@ -30,9 +30,15 @@ public class MockServer {
 
 
             try {
-                JSONArray jsonArray = new JSONArray(inputValue);
-                //JSONObject jsonObject = new JSONObject(inputValue);
-                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                JSONObject jsonObject;
+                if(inputValue.startsWith("[")) {
+                    JSONArray jsonArray = new JSONArray(inputValue);
+                    jsonObject = jsonArray.getJSONObject(0);
+                }
+                else {
+                    jsonObject = new JSONObject(inputValue);
+                }
+
                 JSONObject respJSON = apiService.acceptOrders(jsonObject);
 
                 String outputValue = respJSON.toString();
